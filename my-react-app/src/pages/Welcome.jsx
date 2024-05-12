@@ -1,5 +1,5 @@
 import React from 'react';
-import ArrowComponent from './Toward';
+import ArrowComponent from '../Components/Toward';
 function Welcome() {
     return (
         <div>
