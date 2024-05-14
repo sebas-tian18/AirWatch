@@ -18,13 +18,13 @@ function NavBar() {
               href="#"
               class="text-sm  text-blue-600 dark:text-blue-500 hover:underline"
             >
-              <ArrowComponent to="/welcome" text="Enlace 2" />
+              <ArrowComponent to="/" text="Enlace 2" />
             </a>
             <a
               href="#"
               class="text-sm  text-blue-600 dark:text-blue-500 hover:underline "
             >
-              <ArrowComponent to="/welcome" text="Enlace 2" />
+              <ArrowComponent to="/" text="Enlace 2" />
             </a>
           </div>
         </div>
