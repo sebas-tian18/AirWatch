@@ -2,7 +2,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const ArrowComponent = ({ to }) => {
+const ArrowComponent = ({ to, text }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -12,18 +12,11 @@ const ArrowComponent = ({ to }) => {
   return (
     <div
       className="arrow-container"
-      style={{
-        width: "2rem",
-        height: "2rem",
-        backgroundColor: "#00aaf0",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        cursor: "pointer",
-      }}
       onClick={handleClick}
     >
-    <p>-{'>'}</p>
+    <button class="bg-blue-500 text-white font-bold py-2 px-4 border-b-4 border-blue-700 rounded active:border-blue-500 active:pb-1" >
+      {text}
+    </button>
     </div>
   );
 };

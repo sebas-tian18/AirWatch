@@ -1,5 +1,7 @@
 import React from "react";
 import logo from "../Images/Blackfavicon.png";
+import ArrowComponent from "../Components/Toward";
+
 function NavBar() {
   return (
     <div>
@@ -12,22 +14,17 @@ function NavBar() {
             </span>
           </button>
           <div class="flex items-center space-x-6 rtl:space-x-reverse">
-            
             <a
               href="#"
               class="text-sm  text-blue-600 dark:text-blue-500 hover:underline"
             >
-              <button class="bg-blue-500 text-white font-bold py-2 px-4 border-b-4 border-blue-700 rounded active:border-blue-500 active:pb-1" >
-                Enlace 1
-              </button>
+              <ArrowComponent to="/welcome" text="Enlace 2" />
             </a>
             <a
               href="#"
               class="text-sm  text-blue-600 dark:text-blue-500 hover:underline "
             >
-              <button class="bg-blue-500 text-white font-bold py-2 px-4 border-b-4 border-blue-700 rounded active:border-blue-500 active:pb-1" >
-                Enlace 2
-              </button>
+              <ArrowComponent to="/welcome" text="Enlace 2" />
             </a>
           </div>
         </div>
