@@ -19,11 +19,11 @@ function Welcome() {
             </h2>
           <div className="pr-[10%] pl-[10%]  ">
             <input
-              className="h-10  mt-5 rounded-full  px-4 w-full bg-gray-50  "
+              className=" text-black h-10  mt-5 rounded-full  px-4 w-full bg-gray-50  "
               type="text"
             />
             <input
-              className="h-10  mt-5 rounded-full px-4 w-full bg-gray-50  "
+              className="text-black h-10  mt-5 rounded-full px-4 w-full bg-gray-50  "
               type="text"
             />
             <div className="mt-10 flex space-x-4">
