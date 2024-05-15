@@ -4,7 +4,6 @@ import ArrowComponent from "../Components/Toward";
 
 function NavBar() {
   return (
-    <div>
       <nav class="bg-white border-gray-200 dark:bg-primary">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
           <button class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -18,7 +17,7 @@ function NavBar() {
               href="#"
               class="text-sm  text-blue-600 dark:text-blue-500 hover:underline"
             >
-              <ArrowComponent to="/" text="Enlace 2" />
+              <ArrowComponent to="/" text="Enlace 1" />
             </a>
             <a
               href="#"
@@ -29,7 +28,6 @@ function NavBar() {
           </div>
         </div>
       </nav>
-    </div>
   );
 }
 
