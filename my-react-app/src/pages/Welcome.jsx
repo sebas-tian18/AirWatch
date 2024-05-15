@@ -2,11 +2,12 @@ import React from "react";
 import ArrowComponent from "../Components/Toward";
 import NavBar from "../Components/NavBar";
 import nube from "../Images/nube.png";
+
 function Welcome() {
   return (
     <div className="h-screen">
       <NavBar />
-      <div className="grid grid-cols-2  flex flex-col items-center justify-center h-full  bg-blue-200">
+      <div className="grid grid-cols-2  flex flex-col items-center justify-center h-full">
         <div className="h-[50%] ml-[50%] bg-secondary flex flex-col justify-center  item-center text-center">
           <div className="m-auto" id="nube">
             <img src={nube} alt="Cloud Icon" />

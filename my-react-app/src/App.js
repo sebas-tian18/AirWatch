@@ -6,7 +6,7 @@ import Welcome from './pages/Welcome';
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App bg-[#E6E6E6]">
         <Routes>
           <Route path="/" element={<Welcome />} />
         </Routes>

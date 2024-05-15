@@ -1,30 +1,27 @@
 import React from "react";
-import logo from "../Images/Blackfavicon.png";
+import logo from "../Images/Blanco.png";
 import ArrowComponent from "../Components/Toward";
 
 function NavBar() {
   return (
-      <nav class="bg-white border-gray-200 dark:bg-primary fixed top-0 w-screen">
-        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-          <button class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src={logo} class="h-8" alt="logo AirWach" />
-            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              AirWatch
-            </span>
+      <nav className="bg-primary p-7 fixed top-0 w-screen">
+        <div className="grid grid-cols-2">
+          <button className="flex justify-center">
+            <img className="h-20" src={logo} alt="Logo" />
           </button>
-          <div class="flex items-center space-x-6 rtl:space-x-reverse">
-            <a
-              href="#"
-              class="text-sm  text-blue-600 dark:text-blue-500 hover:underline"
-            >
-              <ArrowComponent to="/" text="Enlace 1" buttonStyle="bg-blue-500 text-white font-bold py-2 px-4 border-b-4 border-blue-700 rounded active:border-blue-500 active:pb-1" />
-            </a>
-            <a
-              href="#"
-              class="text-sm  text-blue-600 dark:text-blue-500 hover:underline "
-            >
-              <ArrowComponent to="/" text="Enlace 2" buttonStyle="bg-blue-500 text-white font-bold py-2 px-4 border-b-4 border-blue-700 rounded active:border-blue-500 active:pb-1" />
-            </a>
+          <div className="flex flex-row items-center justify-center w-full space-x-[15%] ">
+            <div>
+              <ArrowComponent to="/" text="Enlace 1" buttonStyle="text-white active:text-blue-500" />
+            </div>
+            <div>
+              <ArrowComponent to="/" text="Enlace 2" buttonStyle="text-white active:text-blue-500" />
+            </div>
+            <div>
+              <ArrowComponent to="/" text="Enlace 3" buttonStyle="text-white active:text-blue-500" />
+            </div>
+            <div>
+              <ArrowComponent to="/" text="Enlace 4" buttonStyle="text-white active:text-blue-500" />
+            </div>
           </div>
         </div>
       </nav>
