@@ -1,8 +1,7 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const ArrowComponent = ({ to, text }) => {
+const ArrowComponent = ({ to, text, buttonStyle }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -10,13 +9,12 @@ const ArrowComponent = ({ to, text }) => {
   };
 
   return (
-    <div
-      className="arrow-container"
-      onClick={handleClick}
-    >
-    <button class="bg-blue-500 text-white font-bold py-2 px-4 border-b-4 border-blue-700 rounded active:border-blue-500 active:pb-1" >
-      {text}
-    </button>
+    <div className="arrow-container" onClick={handleClick}>
+      <button
+        className={` ${buttonStyle}`}
+      >
+        {text}
+      </button>
     </div>
   );
 };
