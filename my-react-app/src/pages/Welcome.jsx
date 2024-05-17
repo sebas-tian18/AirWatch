@@ -21,23 +21,25 @@ function Welcome() {
             </h2>
           <div className="pr-[10%] pl-[10%]  ">
             <input
-              className=" text-black h-10  mt-5 rounded-full  px-4 w-full bg-gray-50  "
+              className=" text-black h-10  mt-5 rounded-full  px-4 w-full bg-[#d9d9d9] outline-none  "
               type="text"
+              placeholder="Correo electrónico"
             />
             <input
-              className="text-black h-10  mt-5 rounded-full px-4 w-full bg-gray-50  "
-              type="text"
+              className="text-black h-10  mt-5 rounded-full px-4 w-full bg-[#d9d9d9] outline-none"
+              type="password"
+              placeholder="Contraseña"
             />
             <div className="mt-10 flex space-x-4">
             <ArrowComponent
               to="/"
               text="Iniciar Sesión"
-              buttonStyle="mt-0.5 bg-neutral-700 text-white font-bold py-2 px-2"
+              buttonStyle="mt-0.5 bg-[#3a3a3a] rounded text-white font-bold py-2 px-2"
             />
             <ArrowComponent
               to="/"
               text="Crear cuenta"
-              buttonStyle="mt-0.5 bg-neutral-700 text-white font-bold py-2 px-2"
+              buttonStyle="mt-0.5 bg-[#3a3a3a] rounded text-white font-bold py-2 px-2"
             />
             </div>
           </div>
