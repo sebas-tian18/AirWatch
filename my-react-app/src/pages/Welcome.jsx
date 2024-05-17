@@ -2,6 +2,7 @@ import React from "react";
 import ArrowComponent from "../Components/Toward";
 import NavBar from "../Components/NavBar";
 import nube from "../Images/nube.png";
+import Footer from "../Components/Footer";
 
 function Welcome() {
   return (
@@ -10,7 +11,7 @@ function Welcome() {
       <div className="grid grid-cols-2  flex flex-col items-center justify-center h-full">
         <div className="h-[50%] ml-[50%] bg-secondary flex flex-col justify-center  item-center text-center">
           <div className="m-auto" id="nube">
-            <img src={nube} alt="Cloud Icon" />
+            <img src={nube} alt="Cloud-Icon" />
           </div>
         </div>
 
@@ -31,17 +32,18 @@ function Welcome() {
             <ArrowComponent
               to="/"
               text="Iniciar Sesión"
-              buttonStyle="mt-0.5 bg-neutral-700 text-white font-bold py-2 px-2 border-b-4 border-stone-900  active:border-neutral-700 active:mt-1"
+              buttonStyle="mt-0.5 bg-neutral-700 text-white font-bold py-2 px-2"
             />
             <ArrowComponent
               to="/"
               text="Crear cuenta"
-              buttonStyle="mt-0.5 bg-neutral-700 text-white font-bold py-2 px-2  border-b-4 border-stone-900  active:border-neutral-700 active:mt-1"
+              buttonStyle="mt-0.5 bg-neutral-700 text-white font-bold py-2 px-2"
             />
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
