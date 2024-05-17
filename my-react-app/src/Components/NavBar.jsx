@@ -34,7 +34,7 @@ function NavBar() {
           <div>
             <ArrowComponent
               to="/"
-              text="Enlace4"
+              text="Cerrar Sesión"
               buttonStyle="text-white text-l active:text-blue-500"
             />
           </div>

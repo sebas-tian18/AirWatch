@@ -6,44 +6,49 @@ import Footer from "../Components/Footer";
 
 function Login() {
   return (
-    <div className="h-screen">
+    <div>
       <NavBar />
-      <div className="grid grid-cols-2  flex flex-col items-center justify-center h-full">
-        <div className="h-[50%] ml-[50%] bg-secondary flex flex-col justify-center  item-center text-center">
-          <div className="m-auto" id="nube">
-            <img src={nube} alt="Cloud-Icon" />
+      <div className="h-screen flex flex-row items-center">
+        <div className="basis-1/4"></div>
+        <div className="basis-2/4 bg-[#a3def6] rounded-2xl flex flex-row">
+          <div className="basis-1/2 flex justify-center items-center">
+            <img className="h-[50%]" src={nube} alt="Cloud" />
           </div>
-        </div>
-
-        <div className="text-white h-[50%] mr-[40%]  text-center bg-third ">
-          <h2 className=" space-x-6 rtl:space-x-reverse mt-20 font-bold text-2xl  w-full ">
-            Iniciar Sesión
-          </h2>
-          <div className="pr-[10%] pl-[10%]  ">
-            <input
-              className=" text-black h-10  mt-5 rounded-full  px-4 w-full bg-[#d9d9d9] outline-none  "
-              type="text"
-              placeholder="Correo electrónico"
-            />
-            <input
-              className="text-black h-10  mt-5 rounded-full px-4 w-full bg-[#d9d9d9] outline-none"
-              type="password"
-              placeholder="Contraseña"
-            />
-            <div className="mt-10 flex space-x-4">
-            <ArrowComponent
-              to="/"
-              text="Iniciar Sesión"
-              buttonStyle="mt-0.5 bg-[#3a3a3a] rounded text-white font-bold py-2 px-2"
-            />
-            <ArrowComponent
-              to="/"
-              text="Crear cuenta"
-              buttonStyle="mt-0.5 bg-[#3a3a3a] rounded text-white font-bold py-2 px-2"
-            />
+          <div className="basis-1/2 px-12 py-16 flex flex-col justify-center gap-10 bg-[#5191AB] rounded-2xl">
+            <div className="basis-1/4 text-white text-5xl">Iniciar Sesion</div>
+            <div className="basis-1/4">
+              <input
+                className="text-black h-10 rounded-full px-4 w-full bg-[#d9d9d9] outline-none"
+                type="text"
+                placeholder="Correo electrónico"
+              />
+            </div>
+            <div className="basis-1/4">
+              <input
+                className="text-black h-10 rounded-full px-4 w-full bg-[#d9d9d9] outline-none"
+                type="password"
+                placeholder="Contraseña"
+              />
+            </div>
+            <div className="basis-1/4 flex flex-row gap-5">
+              <div className="basis-4/10">
+                <ArrowComponent
+                  to="/"
+                  text="Iniciar Sesión"
+                  buttonStyle="bg-[#3a3a3a] rounded text-white p-2"
+                />
+              </div>
+              <div className="basis-4/10">
+                <ArrowComponent
+                  to="/"
+                  text="Crear cuenta"
+                  buttonStyle="bg-[#3a3a3a] rounded text-white p-2"
+                />
+              </div>
             </div>
           </div>
         </div>
+        <div className="basis-1/4"></div>
       </div>
       <Footer />
     </div>
