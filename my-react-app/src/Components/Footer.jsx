@@ -3,7 +3,7 @@ import logo from "../Images/Blanco.png";
 
 const Footer = () => {
   return (
-    <div className='bg-black absolute inset-x-0 bottom-0 h-[15%]'>
+    <div className='w-auto bg-black absolute inset-x-0 bottom-0 h-auto'>
         <div className='flex flex-row justify-center items-center'>
             <div className='text-white basis-1/3 flex flex-col gap-1'>
                 <div className='font-bold text-center'>CONTACTANOS:</div>
