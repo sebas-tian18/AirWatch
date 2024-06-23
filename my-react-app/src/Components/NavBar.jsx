@@ -2,9 +2,12 @@ import React from "react";
 import logo from "../Images/Blanco.png";
 import ArrowComponent from "../Components/Toward";
 
-function NavBar() {
+function NavBar({ position = "absolute", navBarRef }) {
   return (
-    <nav className="bg-primary p-7 absolute top-0 inset-x-0">
+    <nav
+      ref={navBarRef}
+      className={`bg-primary p-7 ${position} top-0 inset-x-0`}
+    >
       <div className="grid grid-cols-2 gap-5">
         <button className="flex justify-center flex-wrap">
           <img className="h-20" src={logo} alt="Logo" />
@@ -19,7 +22,7 @@ function NavBar() {
           </div>
           <div>
             <ArrowComponent
-              to="/"
+              to="/Register"
               text="Register"
               buttonStyle="text-white text-l active:text-blue-500"
             />
@@ -27,7 +30,7 @@ function NavBar() {
           <div>
             <ArrowComponent
               to="/"
-              text="Enlace3"
+              text="Inicio"
               buttonStyle="text-white text-l active:text-blue-500"
             />
           </div>
