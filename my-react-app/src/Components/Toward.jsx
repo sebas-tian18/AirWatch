@@ -10,11 +10,7 @@ const ArrowComponent = ({ to, text, buttonStyle }) => {
 
   return (
     <div className="arrow-container" onClick={handleClick}>
-      <button
-        className={` ${buttonStyle}`}
-      >
-        {text}
-      </button>
+      <button className={` ${buttonStyle}`}>{text}</button>
     </div>
   );
 };

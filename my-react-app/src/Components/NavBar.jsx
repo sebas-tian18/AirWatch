@@ -10,7 +10,11 @@ function NavBar({ position = "absolute", navBarRef }) {
     >
       <div className="grid grid-cols-2 gap-5">
         <button className="flex justify-center flex-wrap">
-          <img className="h-20" src={logo} alt="Logo" />
+          <ArrowComponent
+            to="/"
+            text={<img className="h-20" src={logo} alt="Logo" />}
+            buttonStyle="text-white text-l"
+          />
         </button>
         <div className="flex flex-row items-center justify-center w-full space-x-[15%] flex-wrap ">
           <div>
