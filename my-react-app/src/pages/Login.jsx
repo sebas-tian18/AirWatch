@@ -15,7 +15,7 @@ function Login() {
             <img className="h-[50%]" src={nube} alt="Cloud" />
           </div>
           <div className="basis-1/2 px-12 py-16 flex flex-col justify-center gap-10 bg-[#5191AB] rounded-2xl">
-            <div className="basis-1/4 text-white text-5xl">Iniciar Sesion</div>
+            <div className="basis-1/4 text-white text-5xl ">Iniciar Sesion</div>
             <div className="basis-1/4">
               <input
                 className="text-black h-10 rounded-full px-4 w-full bg-[#d9d9d9] outline-none"
@@ -50,7 +50,7 @@ function Login() {
         </div>
         <div className="basis-1/4"></div>
       </div>
-      <Footer />
+      <Footer Absolute />
     </div>
   );
 }
