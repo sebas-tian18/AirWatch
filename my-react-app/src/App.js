@@ -4,6 +4,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Inicio from "./pages/Inicio";
 import Graph from "./pages/Graph";
+import Values from "./pages/Values";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/graph" element={<Graph />} />
+          <Route path="/values" element={<Values />} />
         </Routes>
       </div>
     </Router>

@@ -52,6 +52,13 @@ function NavBar({ position = "absolute", navBarRef }) {
               buttonStyle="text-white text-l active:text-blue-500"
             />
           </div>
+          <div>
+            <ArrowComponent
+              to="/Values"
+              text="Values"
+              buttonStyle="text-white text-l active:text-blue-500"
+            />
+          </div>
         </div>
       </div>
     </nav>

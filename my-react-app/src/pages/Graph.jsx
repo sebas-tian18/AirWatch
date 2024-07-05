@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createChart } from "lightweight-charts";
+import { database } from '../firebase';  // importar la base de datos de Firebase
+import { ref, onValue } from "firebase/database";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 //import ArrowComponent from "../Components/Toward";
