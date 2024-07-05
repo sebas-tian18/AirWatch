@@ -16,7 +16,7 @@ function NavBar({ position = "absolute", navBarRef }) {
             buttonStyle="text-white text-l"
           />
         </button>
-        <div className="flex flex-row items-center justify-center w-full space-x-[15%] flex-wrap ">
+        <div className="grid grid-cols-6 items-center justify-center w-full space-x-[15%] flex-wrap ">
           <div>
             <ArrowComponent
               to="/Login"
@@ -40,13 +40,6 @@ function NavBar({ position = "absolute", navBarRef }) {
           </div>
           <div>
             <ArrowComponent
-              to="/"
-              text="Cerrar Sesión"
-              buttonStyle="text-white text-l active:text-blue-500"
-            />
-          </div>
-          <div>
-            <ArrowComponent
               to="/Graph"
               text="Graph"
               buttonStyle="text-white text-l active:text-blue-500"
@@ -56,6 +49,13 @@ function NavBar({ position = "absolute", navBarRef }) {
             <ArrowComponent
               to="/Values"
               text="Values"
+              buttonStyle="text-white text-l active:text-blue-500"
+            />
+          </div>
+          <div>
+            <ArrowComponent
+              to="/"
+              text="Cerrar Sesión"
               buttonStyle="text-white text-l active:text-blue-500"
             />
           </div>

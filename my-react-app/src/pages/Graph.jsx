@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createChart } from "lightweight-charts";
-import { database } from '../firebase';  // importar la base de datos de Firebase
-import { ref, onValue } from "firebase/database";
+import { database } from "../firebase"; // importar la base de datos de Firebase
+import { ref, onValue, off } from "firebase/database";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
-//import ArrowComponent from "../Components/Toward";
 
-// Definimos el componente Graph
 function Graph() {
   const chartContainerRef1 = useRef();
   const chartContainerRef2 = useRef();
@@ -16,22 +14,21 @@ function Graph() {
   const chart2Ref = useRef();
   const [data1, setData1] = useState([]);
   const [data2, setData2] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const dataLimit = 50;
 
   useEffect(() => {
     const createChartInstance = (containerRef) => {
       const chart = createChart(containerRef.current, {
         layout: {
-          backgroundColor: '#ffffff', 
-          textColor: '#000000',
+          backgroundColor: "#ffffff",
+          textColor: "#000000",
         },
         grid: {
           vertLines: {
-            color: '#e1ecf2',
+            color: "#e1ecf2",
           },
           horzLines: {
-            color: '#e1ecf2',
+            color: "#e1ecf2",
           },
         },
         width: containerRef.current.clientWidth,
@@ -58,53 +55,96 @@ function Graph() {
       return { chart, lineSeries };
     };
 
-    const { chart: chart1, lineSeries: lineSeries1 } = createChartInstance(chartContainerRef1);
-    const { chart: chart2, lineSeries: lineSeries2 } = createChartInstance(chartContainerRef2);
+    const { chart: chart1, lineSeries: lineSeries1 } =
+      createChartInstance(chartContainerRef1);
+    const { chart: chart2, lineSeries: lineSeries2 } =
+      createChartInstance(chartContainerRef2);
 
     lineSeries1Ref.current = lineSeries1;
     lineSeries2Ref.current = lineSeries2;
     chart1Ref.current = chart1;
     chart2Ref.current = chart2;
 
-    window.addEventListener('resize', () => {
-      chart1.resize(chartContainerRef1.current.clientWidth, chartContainerRef1.current.clientHeight);
-      chart2.resize(chartContainerRef2.current.clientWidth, chartContainerRef2.current.clientHeight);
+    window.addEventListener("resize", () => {
+      chart1.resize(
+        chartContainerRef1.current.clientWidth,
+        chartContainerRef1.current.clientHeight
+      );
+      chart2.resize(
+        chartContainerRef2.current.clientWidth,
+        chartContainerRef2.current.clientHeight
+      );
     });
 
     return () => {
       chart1.remove();
       chart2.remove();
-      window.removeEventListener('resize', () => {
-        chart1.resize(chartContainerRef1.current.clientWidth, chartContainerRef1.current.clientHeight);
-        chart2.resize(chartContainerRef2.current.clientWidth, chartContainerRef2.current.clientHeight);
+      window.removeEventListener("resize", () => {
+        chart1.resize(
+          chartContainerRef1.current.clientWidth,
+          chartContainerRef1.current.clientHeight
+        );
+        chart2.resize(
+          chartContainerRef2.current.clientWidth,
+          chartContainerRef2.current.clientHeight
+        );
       });
     };
   }, []);
 
   useEffect(() => {
-    if (lineSeries1Ref.current && lineSeries2Ref.current) {
-      const intervalId = setInterval(() => {
-        const newTime = Math.floor(Date.now() / 1000); // Obtener el tiempo actual en segundos
-        setData1((prevData1) => {                                                                               //cambiar newData1 al valor de pm10
-          const newData1 = [...prevData1, { time: newTime, value: Math.random() * 100 }];
-          if (newData1.length > dataLimit) newData1.shift();
-          lineSeries1Ref.current.setData(newData1); 
-          return newData1;
-        });
+    const pm10Ref = ref(database, "test/PM10");
+    const pm25Ref = ref(database, "test/PM2_5");
 
-        setData2((prevData2) => {                                                                                //cambiar newData2 al valor de pm2.5
-          const newData2 = [...prevData2, { time: newTime, value: Math.random() * 100 }];
+    const updateChartData = (pm10Value, pm25Value) => {
+      const newTime = Math.floor(Date.now() / 1000); // Obtener el tiempo actual en segundos
+
+      setData1((prevData1) => {
+        // Solo agregar nuevos datos si hay un valor y el tiempo es mayor al último valor
+        if (
+          pm10Value !== null &&
+          (prevData1.length === 0 ||
+            newTime > prevData1[prevData1.length - 1].time)
+        ) {
+          const newData1 = [...prevData1, { time: newTime, value: pm10Value }];
+          if (newData1.length > dataLimit) newData1.shift();
+          lineSeries1Ref.current.setData(newData1);
+          return newData1;
+        }
+        return prevData1;
+      });
+
+      setData2((prevData2) => {
+        // Solo agregar nuevos datos si hay un valor y el tiempo es mayor al último valor
+        if (
+          pm25Value !== null &&
+          (prevData2.length === 0 ||
+            newTime > prevData2[prevData2.length - 1].time)
+        ) {
+          const newData2 = [...prevData2, { time: newTime, value: pm25Value }];
           if (newData2.length > dataLimit) newData2.shift();
           lineSeries2Ref.current.setData(newData2);
           return newData2;
-        });
+        }
+        return prevData2;
+      });
+    };
 
-        setCurrentIndex((prevIndex) => prevIndex + 1);
-      }, 1000);
+    const pm10Listener = onValue(pm10Ref, (snapshot) => {
+      const pm10Value = snapshot.val();
+      updateChartData(pm10Value, null);
+    });
 
-      return () => clearInterval(intervalId);
-    }
-  }, [currentIndex]);
+    const pm25Listener = onValue(pm25Ref, (snapshot) => {
+      const pm25Value = snapshot.val();
+      updateChartData(null, pm25Value);
+    });
+
+    return () => {
+      off(pm10Ref, "value", pm10Listener);
+      off(pm25Ref, "value", pm25Listener);
+    };
+  }, []);
 
   return (
     <div className="h-screen">
@@ -138,7 +178,7 @@ function Graph() {
           </div>
           <div className="basis-1/4"></div>
         </div>
-        <Footer />
+        <Footer Absolute />
       </div>
     </div>
   );

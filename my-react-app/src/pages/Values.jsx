@@ -46,7 +46,7 @@ function DataDisplay() {
         </div>
         <div className="basis-1/4"></div>
       </div>
-      <Footer />
+      <Footer Absolute />
     </div>
   );
 }
